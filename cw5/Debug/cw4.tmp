@@ -1,0 +1,25 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.57</VERSION>
+ <DEVICE>"ATtiny2313A"</DEVICE>
+ <WORKING_DIR>C:\Users\LENOVO\Documents\pn\1_AVR\Atmel\avr\cw4\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR Assembler\Native\2.1.1175\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\LENOVO\Documents\pn\1_AVR\Atmel\avr\cw4\cw4.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR Assembler\Native\2.1.1175\avrassembler\Include\tn2313Adef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\LENOVO\Documents\pn\1_AVR\Atmel\avr\cw4\Debug/cw4.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>cw4.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>cw4.map</FILE>
+  <FILE>cw4.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+ </LABELS>
+</ASSEMBLER_INFO>
