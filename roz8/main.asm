@@ -72,7 +72,7 @@ Count:		sbiw R25:R24, 1		//(R*4)+1
 /*
    ++++++++++++++++++++++
            cw23
-   ++++++++++++++++++++++    */
+   ++++++++++++++++++++++    
      
 MainLoop:  
             ldi R22, 1			//delay time ms
@@ -121,17 +121,32 @@ loop:   dec r20
            cw25
    ++++++++++++++++++++++ 
 
-        ldi r22, 10
-mili:   ldi r21, 20
-loop2:  ldi r20, 100
+MainLoop:  
+            ldi R24, 1			//delay time ms
+            sts 0x60, r24
+    		     ;tu musi byc od razu rcall DelayInMs
+            rcall DelayInMs ;
+            rjmp MainLoop
 
-loop:   dec r20
-        nop  //instrukcje
-        brne loop
-        dec r21
-        brne loop2
-        dec r22
-        brne mili
+DelayNCycles: ;zwyk³a etykieta
+            nop
+            nop
+            nop
+            ret 
+            
+DelayInMs:  ldi R24, LOW(2000)
+			ldi R25, HIGH(2000)
+            rcall DelayOneMs  
+            lds r24, 0x60    
+			dec R24
+            sts 0x60,r24
+			brbc 1, DelayInMs
+			ret
+
+DelayOneMs:	sbiw R25:R24, 1		//(R*4)+1
+			brne DelayOneMs
+            ret								
+
 
    /* ------------------------stare
         ldi r22, 100
@@ -180,31 +195,32 @@ Loop_big: ldi r21, 0x9B //0x07
 
 
 
- ++++++++++++++++++++++     0x6419
+/* ++++++++++++++++++++++     0x6419
            cw27
-   ++++++++++++++++++++++ 
+   ++++++++++++++++++++++    */
 
 
-   			ldi R22, 1						//delay period
-					
-			// R16 - m³odszy bajt
-			// R17 - starszy bajt
-			
-			// - petla Delay
-Delay:		ldi R24, LOW(2000)
+MainLoop:  
+            ldi R24, 2			//delay time ms
+    		     ;tu musi byc od razu rcall DelayInMs
+            rcall DelayInMs ;
+            rjmp MainLoop
+
+DelayNCycles: ;zwyk³a etykieta
+            nop
+            nop
+            nop
+            ret 
+            
+DelayInMs:  push r24
+            ldi R24, LOW(2000)
 			ldi R25, HIGH(2000)
+            rcall DelayOneMs  
+            pop r24
+			dec R24
+			brbc 1, DelayInMs
+			ret
 
-Count:		sbiw R25:R24, 1		//(R*4)+1
-			brne Count
-
-			dec R22
-			brbc 1, Delay
-			// petla Delay -
-
-
-			nop								//debug
-
-
-
-
-            */
+DelayOneMs:	sbiw R25:R24, 1		//(R*4)+1
+			brne DelayOneMs
+            ret		
