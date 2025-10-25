@@ -221,6 +221,7 @@ DelayInMs:  push r24
 			brbc 1, DelayInMs
 			ret
 
-DelayOneMs:	sbiw R25:R24, 1		//(R*4)+1
-			brne DelayOneMs
+DelayOneMs: sbiw R25:R24, 1		//(R*4)+1
+			
+            brne DelayOneMs
             ret		
