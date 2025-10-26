@@ -116,7 +116,7 @@ pop r30
 
 /*--------   tabele    --------*/
 Table: .db 0b00111111, 0b00000110, 0b01011011, 0b01001111, 0b01100110, 0b01101101, 0b01111101, 0b00000111, 0b01111111, 0b01101111 // UWAGA: liczba bajtów zdeklarowanych  w pamiêci kodu musi byæ parzysta
-OneHot5: .db 0b0001, 0b0010, 0b0100, 0b1000, 0b10000
+OneHot5: .db 0b0001, 0b0010, 0b0100, 0b1000, 0b00010000, 0b00100000
 
 /*--------   makra    --------*/
 .macro LOAD_CONST
