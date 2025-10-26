@@ -83,7 +83,7 @@ DelayOneMs: sbiw R25:R24, 1		//(R*4)+1
 
 
  /* ++++++++++++++++++++++
-           cw34
+           cw34,35
    ++++++++++++++++++++++ */
   
 
@@ -121,7 +121,7 @@ DelayOneMs: sbiw R25:R24, 1		//(R*4)+1
 
 
 Main: 
-    out Digits_P, r21
+    out Segments_P, r21
     mov r20, Digit_0 ;cyfra jeden
     out Segments_P, r20
     LOAD_CONST r17,r16,5			//delay time ms    
@@ -184,3 +184,5 @@ DelayOneMs: sbiw R25:R24, 1		//(R*4)+1
 			
             brne DelayOneMs
             ret		
+
+

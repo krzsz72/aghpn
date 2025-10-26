@@ -27,6 +27,8 @@ Project("{18226A42-8477-4023-8AD2-40C49DA407C9}") = "roz9", "roz9\roz9.asmproj",
 EndProject
 Project("{18226A42-8477-4023-8AD2-40C49DA407C9}") = "roz10", "roz10\roz10.asmproj", "{5AE5FA1E-3215-42B5-BFBE-02B6CAE59F05}"
 EndProject
+Project("{18226A42-8477-4023-8AD2-40C49DA407C9}") = "roz11", "roz11\roz11.asmproj", "{D055BA3F-136F-4280-AF9B-3AAF3244FF8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|AVR = Debug|AVR
@@ -85,6 +87,10 @@ Global
 		{5AE5FA1E-3215-42B5-BFBE-02B6CAE59F05}.Debug|AVR.Build.0 = Debug|AVR
 		{5AE5FA1E-3215-42B5-BFBE-02B6CAE59F05}.Release|AVR.ActiveCfg = Release|AVR
 		{5AE5FA1E-3215-42B5-BFBE-02B6CAE59F05}.Release|AVR.Build.0 = Release|AVR
+		{D055BA3F-136F-4280-AF9B-3AAF3244FF8F}.Debug|AVR.ActiveCfg = Debug|AVR
+		{D055BA3F-136F-4280-AF9B-3AAF3244FF8F}.Debug|AVR.Build.0 = Debug|AVR
+		{D055BA3F-136F-4280-AF9B-3AAF3244FF8F}.Release|AVR.ActiveCfg = Release|AVR
+		{D055BA3F-136F-4280-AF9B-3AAF3244FF8F}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
