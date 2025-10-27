@@ -8,7 +8,7 @@
 
 
  /* ++++++++++++++++++++++
-           cw40
+           cw41
    ++++++++++++++++++++++ */
   
 
@@ -33,6 +33,7 @@ Table: .db 0b00111111, 0b00000110, 0b01011011, 0b01001111, 0b01100110, 0b0110110
     push r17
     push r16
 
+    ser r20
     ldi r21, @0
     ldi r21, (2 << @0)
     
@@ -40,7 +41,7 @@ Table: .db 0b00111111, 0b00000110, 0b01011011, 0b01001111, 0b01100110, 0b0110110
     out Digits_P, r21     //zalacz cyfre
     mov r20, Digit_@0             //cyfra
     out Segments_P, r20     //zalacz segmenty
-    LOAD_CONST r17,r16,250    //delay time ms    
+    LOAD_CONST r17,r16,5    //delay time ms    
     rcall DelayInMs
     out Segments_P, r20    //wylacz segmenty
     out Digits_P, r21       //wylacz cyfre
@@ -67,7 +68,7 @@ Table: .db 0b00111111, 0b00000110, 0b01011011, 0b01001111, 0b01100110, 0b0110110
 .def Digit_3 = r5
 
 /*--------   ladowanie cyfr    --------*/
-    ldi r16, 9
+/*    ldi r16, 9
     rcall Digitto7segCode
     mov Digit_0, r16
     ldi r16, 8
@@ -80,7 +81,7 @@ Table: .db 0b00111111, 0b00000110, 0b01011011, 0b01001111, 0b01100110, 0b0110110
     rcall Digitto7segCode
     mov Digit_3, r16
 
-
+*/
 
 /*--------   pre main    --------*/
     
@@ -92,24 +93,64 @@ Table: .db 0b00111111, 0b00000110, 0b01011011, 0b01001111, 0b01100110, 0b0110110
     out DDRD, r20
     //ldi r21, 0x22       // rysowanie wyswietlacza od drugiej cyfry
 
-    ldi r19, 0xA
+    ldi r27, 0xA
 
 /*--------   main    --------*/
 Main: 
 
-    ldi r17, 0
-mainskip:   
+    ldi r20, 0
+    
+digit0:
             mov r16,r17
             rcall Digitto7segCode
             mov Digit_0, r16
-            SET_DIGIT 0
+            rcall writedigits
             inc r17
-            cp r17, r19
-            brne mainskip
+            cp r17, r27
+            brne digit0
+digit1:
+            ldi r17, 0
+            mov r16,r18
+            rcall Digitto7segCode
+            mov Digit_1, r16
+            rcall writedigits
+            inc r18
+            cp r18, r27
+            brne digit0
+digit2:
+            ldi r18, 0            
+            mov r16,r19
+            rcall Digitto7segCode
+            mov Digit_2, r16
+            rcall writedigits
+            inc r19
+            cp r19, r27
+            brne branchExtend
+
+digit3:
+            ldi r19, 0
+            mov r16,r20
+            rcall Digitto7segCode
+            mov Digit_3, r16
+            rcall writedigits
+            inc r20
+            cp r20, r27
+            brne branchExtend
 
 rjmp Main
+branchExtend:
+    rjmp digit0
+
+
          
-/*--------   podprogramy    --------*/   
+/*--------   podprogramy    --------*/  
+writedigits:
+        SET_DIGIT 0
+        SET_DIGIT 1
+        SET_DIGIT 2
+        SET_DIGIT 3
+        ret
+ 
 DelayInMs:  
             mov r25,r17
             mov r24, r16
