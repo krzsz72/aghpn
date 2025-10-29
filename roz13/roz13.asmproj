@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>6.2</ProjectVersion>
     <ToolchainName>com.Atmel.AVRAssembler</ToolchainName>
-    <ProjectGuid>{a7667fc7-05ff-41ec-823a-121920292c15}</ProjectGuid>
+    <ProjectGuid>{d38d0805-1c06-442a-98f4-827dcb3217cf}</ProjectGuid>
     <avrdeviceseries>none</avrdeviceseries>
     <avrdevice>ATtiny2313A</avrdevice>
     <OutputFileName>$(MSBuildProjectName)</OutputFileName>
